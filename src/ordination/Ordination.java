@@ -8,7 +8,7 @@ public abstract class Ordination {
     private final LocalDate slutDato;
     private Lægemiddel lægemiddel;
 
-    protected Ordination(LocalDate startDato, LocalDate slutDato) {
+    public Ordination(LocalDate startDato, LocalDate slutDato) {
         this.startDato = startDato;
         this.slutDato = slutDato;
     }
