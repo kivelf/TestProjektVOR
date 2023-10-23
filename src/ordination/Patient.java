@@ -27,6 +27,9 @@ public class Patient {
         return new ArrayList<>(ordinationer);
     }
 
+    public void addOrdinationer(Ordination o){
+        ordinationer.add(o);
+    }
     public double getVægt() {
         return vægt;
     }
