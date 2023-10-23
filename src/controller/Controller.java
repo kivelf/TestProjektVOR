@@ -66,8 +66,28 @@ public abstract class Controller {
     public static DagligSkæv opretDagligSkævOrdination(
             LocalDate startDen, LocalDate slutDen, Patient patient, Lægemiddel lægemiddel,
             LocalTime[] klokkeSlet, double[] antalEnheder) {
+        if (startDen.compareTo(slutDen) > 0){
+            throw new IllegalArgumentException("Startdatoen kan ikke være efter slutdatoen!");
+        }
+        if (klokkeSlet.length != antalEnheder.length){
+            throw new IllegalArgumentException("Antallet af elementer i klokkeSlet og antalEnheder kan ikke være forskellige!");
+        }
 
-        return null;
+        // opret DagligSkæv ordination objekt
+        DagligSkæv ds = new DagligSkæv(startDen, slutDen);
+
+        // tilknyt lægemiddel til den
+        ds.setLægemiddel(lægemiddel);
+
+        // tilknyt alle doser til ordinationen
+        for (int i = 0; i < klokkeSlet.length; i++){
+            Dosis dosis = new Dosis(klokkeSlet[i], antalEnheder[i]);
+            ds.addDosis(dosis);
+        }
+        
+        // gem dagligskævordinationen til patienten
+        patient.addOrdinationer(ds);
+        return ds;
     }
 
     /**
@@ -87,8 +107,15 @@ public abstract class Controller {
      * (afhænger af patientens vægt).
      */
     public static double anbefaletDosisPrDøgn(Patient patient, Lægemiddel lægemiddel) {
-
-        return 0;
+        double anbefalet = 0;
+        if (patient.getVægt() < 25){
+            anbefalet = patient.getVægt() * lægemiddel.getEnhedPrKgPrDøgnLet();
+        } else if (patient.getVægt() < 120){
+            anbefalet = patient.getVægt() * lægemiddel.getEnhedPrKgPrDøgnNormal();
+        } else {
+            anbefalet = patient.getVægt() * lægemiddel.getEnhedPrKgPrDøgnTung();
+        }
+        return anbefalet;
     }
 
     /** Returner antal ordinationer for det givne vægtinterval og det givne lægemiddel. */
