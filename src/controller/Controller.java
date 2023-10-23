@@ -23,8 +23,15 @@ public abstract class Controller {
     public static PN opretPNOrdination(
             LocalDate startDato, LocalDate slutDato, Patient patient, Lægemiddel lægemiddel,
             double antal) {
+        if (slutDato.isBefore(startDato)) {
+            throw new IllegalArgumentException();
+        }
 
-        return null;
+        PN ordination = new PN(startDato, slutDato, antal);
+        ordination.setLægemiddel(lægemiddel);
+        patient.addOrdinationer(ordination);
+
+        return ordination;
     }
 
     /**
@@ -61,7 +68,10 @@ public abstract class Controller {
      * kastes en IllegalArgumentException.
      */
     public static void anvendOrdinationPN(PN ordination, LocalDate dato) {
-
+        if (dato.isAfter(ordination.getStartDato()) && dato.isAfter(ordination.getSlutDato())) {
+            ordination.anvendDosis(dato);
+        }
+        else throw new IllegalArgumentException();
     }
 
     /**
@@ -132,7 +142,7 @@ public abstract class Controller {
         opretPNOrdination(LocalDate.parse("2019-01-20"), LocalDate.parse("2019-01-25"),
                 ib, fucidin, 5);
 
-        opretPNOrdination(LocalDate.parse("2019-01-01"), LocalDate.parse("2019.01-12"),
+        opretPNOrdination(LocalDate.parse("2019-01-01"), LocalDate.parse("2019-01-12"),
                 jane, paracetamol, 123);
 
         opretDagligFastOrdination(LocalDate.parse("2019-01-10"), LocalDate.parse("2019-01-12"),
