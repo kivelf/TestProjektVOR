@@ -15,6 +15,18 @@ public class Patient {
         this.vægt = vægt;
     }
 
+    public String getCprNr() {
+        return cprNr;
+    }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public List<Ordination> getOrdinationer() {
+        return new ArrayList<>(ordinationer);
+    }
+
     public double getVægt() {
         return vægt;
     }
