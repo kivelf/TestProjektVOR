@@ -44,13 +44,14 @@ public abstract class Controller {
     public static DagligFast opretDagligFastOrdination(
             LocalDate startDato, LocalDate slutDato, Patient patient, Lægemiddel lægemiddel,
             double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
+        if(startDato.isAfter(slutDato)) throw new IllegalArgumentException("dato forkert");
 
         double[] antal = {morgenAntal, middagAntal, aftenAntal, natAntal};
         DagligFast df = new DagligFast(startDato, slutDato, antal);
         patient.addOrdinationer(df);
         df.setLægemiddel(lægemiddel);
 
-        if(startDato.isAfter(slutDato)) throw new IllegalArgumentException("dato forkert");
+
 
         return df;
     }
@@ -96,7 +97,7 @@ public abstract class Controller {
      * kastes en IllegalArgumentException.
      */
     public static void anvendOrdinationPN(PN ordination, LocalDate dato) {
-        if (dato.isAfter(ordination.getStartDato()) && dato.isAfter(ordination.getSlutDato())) {
+        if (!dato.isBefore(ordination.getStartDato()) && !dato.isAfter(ordination.getSlutDato())) {
             ordination.anvendDosis(dato);
         }
         else throw new IllegalArgumentException();

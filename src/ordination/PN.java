@@ -43,6 +43,7 @@ public class PN extends Ordination {
 
     @Override
     public double døgnDosis() {
+        if(datoerForAnvendelse.isEmpty()) return 0;
         return samletDosis() / dageMellemFørsteOgSidsteAnvendelse();
     }
 
