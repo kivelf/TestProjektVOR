@@ -8,7 +8,7 @@ public class DagligFast extends Ordination{
     private Dosis[] doser = new Dosis[4];
     private double[] antalDosis;
 
-    protected DagligFast(LocalDate startDato, LocalDate slutDato, double[] antalDosis) {
+    public DagligFast(LocalDate startDato, LocalDate slutDato, double[] antalDosis) {
         super(startDato, slutDato);
         this.antalDosis = antalDosis;
         doser[0] = antalDosis[0]==0? null : new Dosis(LocalTime.parse("06:00"), antalDosis[0]);

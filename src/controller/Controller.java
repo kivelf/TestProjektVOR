@@ -3,6 +3,7 @@ package controller;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Queue;
 
 import ordination.*;
 import storage.Storage;
@@ -44,7 +45,14 @@ public abstract class Controller {
             LocalDate startDato, LocalDate slutDato, Patient patient, Lægemiddel lægemiddel,
             double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
 
-        return null;
+        double[] antal = {morgenAntal, middagAntal, aftenAntal, natAntal};
+        DagligFast df = new DagligFast(startDato, slutDato, antal);
+        patient.addOrdinationer(df);
+        df.setLægemiddel(lægemiddel);
+
+        if(startDato.isAfter(slutDato)) throw new IllegalArgumentException("dato forkert");
+
+        return df;
     }
 
     /**
@@ -86,8 +94,17 @@ public abstract class Controller {
     /** Returner antal ordinationer for det givne vægtinterval og det givne lægemiddel. */
     public static int antalOrdinationerPrVægtPrLægemiddel(
             double vægtStart, double vægtSlut, Lægemiddel lægemiddel) {
+        int result = 0;
+        for(Patient p : storage.getAllPatienter()){
+            boolean vaegt = p.getVægt()<= vægtSlut && p.getVægt()>= vægtStart;
+            if(vaegt) {
+                for (Ordination o : p.getOrdinationer()) {
+                    if(o.getLægemiddel().toString().equals(lægemiddel.toString())) result++;
+                }
+            }
+        }
 
-        return 0;
+        return result;
     }
 
     public static List<Patient> getAllPatienter() {
