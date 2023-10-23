@@ -1,6 +1,7 @@
 package ordination;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,11 +39,26 @@ public class PN extends Ordination {
 
     @Override
     public double døgnDosis() {
-        return samletDosis() / antalDage();
+        return samletDosis() / dageMellemFørsteOgSidsteAnvendelse();
     }
 
     @Override
     public String getType() {
         return "PN";
+    }
+
+    public int dageMellemFørsteOgSidsteAnvendelse() {
+        LocalDate første = datoerForAnvendelse.get(0);
+        LocalDate sidste = datoerForAnvendelse.get(0);
+
+        for (LocalDate dato : datoerForAnvendelse) {
+            if (dato.isBefore(første)) {
+                første = dato;
+            }
+            if (dato.isAfter(sidste)) {
+                sidste = dato;
+            }
+        }
+        return (int) ChronoUnit.DAYS.between(første, sidste) + 1;
     }
 }
