@@ -122,16 +122,18 @@ public abstract class Controller {
     /** Returner antal ordinationer for det givne vægtinterval og det givne lægemiddel. */
     public static int antalOrdinationerPrVægtPrLægemiddel(
             double vægtStart, double vægtSlut, Lægemiddel lægemiddel) {
+        double start = vægtStart<vægtSlut? vægtStart: vægtSlut;
+        double slut = vægtStart<vægtSlut? vægtSlut: vægtStart;
         int result = 0;
         for(Patient p : storage.getAllPatienter()){
-            boolean vaegt = p.getVægt()<= vægtSlut && p.getVægt()>= vægtStart;
+            boolean vaegt = p.getVægt()<= slut && p.getVægt()>= start;
             if(vaegt) {
                 for (Ordination o : p.getOrdinationer()) {
                     if(o.getLægemiddel().toString().equals(lægemiddel.toString())) result++;
                 }
             }
         }
-            //:TODO håndter startStart>slutVægt
+
         return result;
     }
 
