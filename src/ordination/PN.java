@@ -26,7 +26,7 @@ public class PN extends Ordination {
      * Registrer datoen for en anvendt dosis.
      */
     public void anvendDosis(LocalDate dato) {
-        if (dato.isAfter(super.getStartDato()) && dato.isBefore(super.getSlutDato())) {
+        if (dato.isAfter(super.getStartDato().minusDays(1)) && dato.isBefore(super.getSlutDato().plusDays(1))) {
             datoerForAnvendelse.add(dato);
         }
     }
