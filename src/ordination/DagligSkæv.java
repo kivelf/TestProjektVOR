@@ -28,17 +28,17 @@ public class DagligSkæv extends Ordination {
     /** Returner den totale dosis, der er givet i den periode, ordinationen er gyldig. */
     @Override
     public double samletDosis() {
-        double total = 0;
-        for (Dosis d : doser){
-            total += d.getAntal();
-        }
-        return total;
+        return døgnDosis() * antalDage();
     }
 
     /** Returner den gennemsnitlige dosis givet per dag. */
     @Override
     public double døgnDosis() {
-        return samletDosis() / antalDage();
+        double total = 0;
+        for (Dosis d : doser){
+            total += d.getAntal();
+        }
+        return total;
     }
 
     /** Returner ordinationstypen som en String. */
