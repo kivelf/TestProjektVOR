@@ -131,7 +131,7 @@ public abstract class Controller {
                 }
             }
         }
-
+            //:TODO håndter startStart>slutVægt
         return result;
     }
 

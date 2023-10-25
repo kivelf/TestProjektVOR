@@ -11,10 +11,10 @@ public class DagligFast extends Ordination{
     public DagligFast(LocalDate startDato, LocalDate slutDato, double[] antalDosis) {
         super(startDato, slutDato);
         this.antalDosis = antalDosis;
-        doser[0] = antalDosis[0]==0? null : new Dosis(LocalTime.parse("06:00"), antalDosis[0]);
-        doser[1] = antalDosis[1]==0? null : new Dosis(LocalTime.parse("12:00"), antalDosis[1]);
-        doser[2] = antalDosis[2]==0? null : new Dosis(LocalTime.parse("18:00"), antalDosis[2]);
-        doser[3] = antalDosis[3]==0? null : new Dosis(LocalTime.parse("24:00"), antalDosis[3]);
+            doser[0] = antalDosis[0] == 0 ? null : new Dosis(LocalTime.parse("06:00"), antalDosis[0]);
+            doser[1] = antalDosis[1] == 0 ? null : new Dosis(LocalTime.parse("12:00"), antalDosis[1]);
+            doser[2] = antalDosis[2] == 0 ? null : new Dosis(LocalTime.parse("18:00"), antalDosis[2]);
+            doser[3] = antalDosis[3] == 0 ? null : new Dosis(LocalTime.parse("24:00"), antalDosis[3]);
     }
 
     public Dosis[] getDoser() {
