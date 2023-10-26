@@ -30,11 +30,11 @@ class DagligFastTest {
        array = new double[]{1, 1, 1, 1};
         df = new DagligFast(LocalDate.parse("2019-01-10"),
                 LocalDate.parse("2019-01-12"), array);
-        assertEquals(df.døgnDosis(), 0.1);
+        assertEquals(df.døgnDosis(), 4);
 
         array = new double[]{0, 2, 0, 1};
         df = new DagligFast(LocalDate.parse("2019-01-10"),
                 LocalDate.parse("2019-01-12"), array);
-        assertEquals(df.døgnDosis(), 0.075);
+        assertEquals(df.døgnDosis(), 3);
     }
 }
