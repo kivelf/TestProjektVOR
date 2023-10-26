@@ -9,11 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DagligFastTest {
     private static Lægemiddel lm;
-    private static Patient finn;
     @BeforeEach
     void setup(){
         lm = new Lægemiddel("Fucidin", 0.025, 0.025, 0.025, "Styk");
-        finn = new Patient("070985-1153", "Finn Madsen", 83.2);
     }
 
     @Test
