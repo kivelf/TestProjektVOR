@@ -13,7 +13,6 @@ public class TestAnbefaletDosisPrDoegn {
     private Lægemiddel paracetamol = new Lægemiddel("Paracetamol", 1, 1.5, 2, "Ml");
     private Lægemiddel fucidin = new Lægemiddel("Fucidin", 0.025, 0.025, 0.025, "Styk");
 
-
     @Test
     void anbefaletDosisPrDøgnTC1() {
         double anbefalet1 = Controller.anbefaletDosisPrDøgn(kiddo, fucidin);
