@@ -45,7 +45,7 @@ class ControllerTestOpretPNOrdination {
 
     @Test
     void TestCase2() {
-        // TestCse 2 - dato for start er før slutdato
+        // TestCase 2 - dato for start er før slutdato
         // Arrange
         slutdato = startdato.plusDays(5);
         int førOrdination = patient.getOrdinationer().size();
@@ -53,5 +53,24 @@ class ControllerTestOpretPNOrdination {
         int efterOrdination = patient.getOrdinationer().size();
         // Act
         int faktiskResultat = efterOrdination - førOrdination;
+        // Assert
+        assertEquals(1, faktiskResultat); // Tjekker om ordinationen er knyttet til patienten
+        assertSame(lægemiddel, pn.getLægemiddel()); // Tjekker om lægemidlet er knyttet til ordinationen
+    }
+
+    @Test
+    void TestCase3() {
+        // TestCase 3 - Startdato er efter slutdato
+        slutdato = startdato.minusDays(5);
+        int førOrdination = patient.getOrdinationer().size();
+        Exception exception = assertThrows(Exception.class,
+                () -> Controller.opretPNOrdination(startdato, slutdato, patient, lægemiddel, antal))
+        int efterOrdination = patient.getOrdinationer().size();
+        // Act
+        int faktiskResultat = efterOrdination - førOrdination;
+        // Assert
+        assertEquals();
+        assertEquals(0, faktiskResultat); // Tjekker om ordinationen er knyttet til patienten
+
     }
 }
