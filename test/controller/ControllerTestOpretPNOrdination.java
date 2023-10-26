@@ -63,14 +63,10 @@ class ControllerTestOpretPNOrdination {
         // TestCase 3 - Startdato er efter slutdato
         slutdato = startdato.minusDays(5);
         int førOrdination = patient.getOrdinationer().size();
-        Exception exception = assertThrows(Exception.class,
-                () -> Controller.opretPNOrdination(startdato, slutdato, patient, lægemiddel, antal))
+        assertThrows(IllegalArgumentException.class,
+                () -> Controller.opretPNOrdination(startdato, slutdato, patient, lægemiddel, antal));
         int efterOrdination = patient.getOrdinationer().size();
-        // Act
         int faktiskResultat = efterOrdination - førOrdination;
-        // Assert
-        assertEquals();
         assertEquals(0, faktiskResultat); // Tjekker om ordinationen er knyttet til patienten
-
     }
 }
