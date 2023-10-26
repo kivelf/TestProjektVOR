@@ -4,17 +4,18 @@ import ordination.DagligSkæv;
 import ordination.Dosis;
 import ordination.Lægemiddel;
 import ordination.Patient;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import controller.Controller;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-class ControllerTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+public class ControllerTest5 {
     private LocalDate startdato = LocalDate.parse("2019-01-01");
     private LocalDate slutdato = LocalDate.parse("2019-01-03");
     private LocalDate slutdato1 = LocalDate.parse("2018-12-31");
@@ -28,18 +29,6 @@ class ControllerTest {
     @BeforeEach
     void setUp() {
         finn = new Patient("070985-1153", "Finn Madsen", 83.2);
-    }
-
-
-    @Test
-    void opretDagligFastOrdination() {
-        //Testcase 1
-        //Arrange
-        Controller.opretDagligFastOrdination(startdato, startdato, finn, fucidin, 0, 0, 0, 0);
-    }
-
-    @Test
-    void antalOrdinationerPrVægtPrLægemiddel() {
     }
 
     @Test
@@ -79,9 +68,5 @@ class ControllerTest {
             assertEquals(doser2forventede.get(i).toString(), doser2.get(i).toString());
         }
         assertEquals(2, antalOrdinationer2);
-    }
-
-    @Test
-    void anbefaletDosisPrDøgn() {
     }
 }
