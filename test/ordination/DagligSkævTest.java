@@ -31,10 +31,10 @@ class DagligSkævTest {
         dagligSkæv4.addDosis(new Dosis(LocalTime.parse("10:00"), 1));   // TC4
 
         // assert
-        assertEquals(dagligSkæv1.døgnDosis(), 1, 0.0001);     // TC1
-        assertEquals(dagligSkæv2.døgnDosis(), 3, 0.0001);     // TC2
-        assertEquals(dagligSkæv3.døgnDosis(), 7, 0.0001);     // TC3
-        assertEquals(dagligSkæv4.døgnDosis(), 2, 0.0001);     // TC4
+        assertEquals(1, dagligSkæv1.døgnDosis(), 0.0001);     // TC1
+        assertEquals(3, dagligSkæv2.døgnDosis(), 0.0001);     // TC2
+        assertEquals(7, dagligSkæv3.døgnDosis(), 0.0001);     // TC3
+        assertEquals(2, dagligSkæv4.døgnDosis(), 0.0001);     // TC4
     }
 
     @Test
@@ -71,13 +71,13 @@ class DagligSkævTest {
         dagligSkæv8.addDosis(new Dosis(LocalTime.parse("10:00"), 2));   // TC8
 
         // assert
-        assertEquals(dagligSkæv1.samletDosis(), 1, 0.0001);     // TC1
-        assertEquals(dagligSkæv2.samletDosis(), 2, 0.0001);     // TC2
-        assertEquals(dagligSkæv3.samletDosis(), 2, 0.0001);     // TC3
-        assertEquals(dagligSkæv4.samletDosis(), 6, 0.0001);     // TC4
-        assertEquals(dagligSkæv5.samletDosis(), 3, 0.0001);     // TC5
-        assertEquals(dagligSkæv6.samletDosis(), 6, 0.0001);     // TC6
-        assertEquals(dagligSkæv7.samletDosis(), 4, 0.0001);     // TC7
-        assertEquals(dagligSkæv8.samletDosis(), 12, 0.0001);    // TC8
+        assertEquals(1, dagligSkæv1.samletDosis(), 0.0001);     // TC1
+        assertEquals(2, dagligSkæv2.samletDosis(), 0.0001);     // TC2
+        assertEquals(2, dagligSkæv3.samletDosis(), 0.0001);     // TC3
+        assertEquals(6, dagligSkæv4.samletDosis(), 0.0001);     // TC4
+        assertEquals(3, dagligSkæv5.samletDosis(), 0.0001);     // TC5
+        assertEquals(6, dagligSkæv6.samletDosis(), 0.0001);     // TC6
+        assertEquals(4, dagligSkæv7.samletDosis(), 0.0001);     // TC7
+        assertEquals(12, dagligSkæv8.samletDosis(), 0.0001);    // TC8
     }
 }

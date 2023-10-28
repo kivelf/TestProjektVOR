@@ -26,8 +26,8 @@ class TestOpretDagligFast {
         int result1 = finn.getOrdinationer().size();
         Lægemiddel result2 = df.getLægemiddel();
         //Assert
-        assertEquals(result1, 1);
-        assertEquals(result2.toString(), "Fucidin");
+        assertEquals(1, result1);
+        assertEquals("Fucidin", result2.toString());
     }
 
     @Test
@@ -38,8 +38,8 @@ class TestOpretDagligFast {
         int result1 = finn.getOrdinationer().size();
         Lægemiddel result2 = df.getLægemiddel();
         //Assert
-        assertEquals(result1, 1);
-        assertEquals(result2.toString(), "Fucidin");
+        assertEquals(1, result1);
+        assertEquals("Fucidin", result2.toString());
     }
 
     @Test
@@ -50,8 +50,8 @@ class TestOpretDagligFast {
         int result1 = finn.getOrdinationer().size();
         Lægemiddel result2 = df.getLægemiddel();
         //Assert
-        assertEquals(result1, 1);
-        assertEquals(result2.toString(), "Fucidin");
+        assertEquals(1, result1);
+        assertEquals("Fucidin", result2.toString());
     }
 
     @Test
@@ -62,8 +62,8 @@ class TestOpretDagligFast {
         int result1 = finn.getOrdinationer().size();
         Lægemiddel result2 = df.getLægemiddel();
         //Assert
-        assertEquals(result1, 1);
-        assertEquals(result2.toString(), "Fucidin");
+        assertEquals(1, result1);
+        assertEquals("Fucidin", result2.toString());
     }
 
     @Test
@@ -74,7 +74,7 @@ class TestOpretDagligFast {
         //Act
         int result1 = finn.getOrdinationer().size();
         //Assert
-        assertEquals(result1, 0);
-        assertEquals(exception.getMessage(), "dato forkert");
+        assertEquals(0, result1);
+        assertEquals("dato forkert", exception.getMessage());
     }
 }

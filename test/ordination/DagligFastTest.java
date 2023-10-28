@@ -23,7 +23,7 @@ class DagligFastTest {
         //Act
         int result = df.antalDage();
         //Assert
-        assertEquals(result, 1);
+        assertEquals(1, result);
 
         //Testcase 2
         //Arrange
@@ -31,10 +31,7 @@ class DagligFastTest {
         //Act
         result = df.antalDage();
         //Assert
-        assertEquals(result, 5);
-
-
-
+        assertEquals(5, result);
     }
 
     @Test
@@ -46,7 +43,7 @@ class DagligFastTest {
         //Act
         double result = df.samletDosis();
         //Assert
-        assertEquals(result, 0);
+        assertEquals(0, result);
 
         //Testcase 2
         //Arrange
@@ -55,7 +52,7 @@ class DagligFastTest {
         //Act
         result = df.samletDosis();
         //Assert
-        assertEquals(result, 3);
+        assertEquals(3, result);
 
         //Testcase 3
         //Arrange
@@ -64,7 +61,7 @@ class DagligFastTest {
         //Act
         result = df.samletDosis();
         //Assert
-        assertEquals(result, 4);
+        assertEquals(4, result);
 
         //Testcase 4
         //Arrange
@@ -73,7 +70,7 @@ class DagligFastTest {
         //Act
         result = df.samletDosis();
         //Assert
-        assertEquals(result, 0);
+        assertEquals(0, result);
 
         //Testcase 5
         //Arrange
@@ -82,7 +79,7 @@ class DagligFastTest {
         //Act
         result = df.samletDosis();
         //Assert
-        assertEquals(result, 12);
+        assertEquals(12, result);
 
         //Testcase 6
         //Arrange
@@ -91,7 +88,7 @@ class DagligFastTest {
         //Act
         result = df.samletDosis();
         //Assert
-        assertEquals(result, 16);
+        assertEquals(16, result);
 
     }
 
@@ -106,7 +103,7 @@ class DagligFastTest {
         //Act
         double result = df.døgnDosis();
         //Assert
-        assertEquals(result, 0);
+        assertEquals(0, result);
 
 
         //Testcase 2
@@ -117,7 +114,7 @@ class DagligFastTest {
         //Act
         result = df.døgnDosis();
         //Assert
-        assertEquals(result, 4);
+        assertEquals(4, result);
 
         //Testcase 3
         //Arrange
@@ -127,6 +124,6 @@ class DagligFastTest {
         //Act
         result = df.døgnDosis();
         //Assert
-        assertEquals(result, 3);
+        assertEquals(3, result);
     }
 }

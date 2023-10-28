@@ -41,41 +41,41 @@ class TestAntalOrdinationerPrVægtPrLægemiddel {
         //Act
         int result = Controller.antalOrdinationerPrVægtPrLægemiddel(75, 100, methorexate);
         //Assert
-        assertEquals(result, 0);
+        assertEquals(0, result);
     }
     @Test
     void testcase2(){
         //Act
         int result = Controller.antalOrdinationerPrVægtPrLægemiddel(75, 75, methorexate);
         //Assert
-        assertEquals(result, 0);
+        assertEquals(0, result);
     }
     @Test
     void testcase3(){
         //Act
         int result = Controller.antalOrdinationerPrVægtPrLægemiddel(100, 75, methorexate);
         //Assert
-        assertEquals(result, 0);
+        assertEquals(0, result);
     }
     @Test
     void testcase4(){
         //Act
         int result = Controller.antalOrdinationerPrVægtPrLægemiddel(75, 100, fucidin);
         //Assert
-        assertEquals(result, 3);
+        assertEquals(3, result);
     }
     @Test
     void testcase5(){
         //Act
         int result = Controller.antalOrdinationerPrVægtPrLægemiddel(83.2, 83.2, fucidin);
         //Assert
-        assertEquals(result, 2);
+        assertEquals(2, result);
     }
     @Test
     void testcase6(){
         //Act
         int result = Controller.antalOrdinationerPrVægtPrLægemiddel(100, 75, fucidin);
         //Assert
-        assertEquals(result, 3);
+        assertEquals(3, result);
     }
 }
